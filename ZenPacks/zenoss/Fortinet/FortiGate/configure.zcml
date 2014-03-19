@@ -17,4 +17,5 @@
         provides=".interfaces.IFGAPInfo"
         />
 
+    <include package=".resources"/>
 </configure>
