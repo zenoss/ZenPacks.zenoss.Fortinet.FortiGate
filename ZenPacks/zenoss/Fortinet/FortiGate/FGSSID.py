@@ -41,4 +41,7 @@ class FGSSID(OSComponent, ManagedEntity):
                 ),
         ),)
 
+    def device(self):
+        return self.os().device()
+
 InitializeClass(FGSSID)
