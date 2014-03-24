@@ -16,7 +16,6 @@ from Products.Zuul.utils import ZuulMessageFactory as _t
 class IFGSSIDInfo(IComponentInfo):
     ssid = schema.TextLine(title=_t(u'SSID'), readonly=True)
     statusadmin = schema.TextLine(title=_t(u'Admin Status'), readonly=True)
-    trafficmode = schema.TextLine(title=_t(u'Traffic Mode'), readonly=True)
     securitymode = schema.TextLine(title=_t(u'Security Mode'), readonly=True)
     encryption = schema.TextLine(title=_t(u'Encryption'), readonly=True)
 

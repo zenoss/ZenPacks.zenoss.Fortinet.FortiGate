@@ -27,6 +27,9 @@ from Products.DataCollector.plugins.DataMaps import (
 from ZenPacks.zenoss.Fortinet.FortiGate.utils import (
     lookup_state,
     lookup_connectionstate,
+    lookup_ssid_broadcast,
+    lookup_ssid_security,
+    lookup_ssid_encryption,
     )
 
 
@@ -89,8 +92,10 @@ class wirelessAP(SnmpPlugin):
             om.state = lookup_state(config_entry.get('fgWcWtpConfigWtpAdmin'))
             om.connectionstate = lookup_connectionstate(
                     ap_session.get('fgWcWtpSessionConnectionState'))
-            om.ipaddress = ap_session.get('fgWcWtpSessionWtpIpAddress')
-            om.macaddress = ap_session.get('fgWcWtpSessionWtpBaseMacAddress')
+            om.ipaddress = '.'.join([
+                str(x) for x in map(ord, ap_session.get('fgWcWtpSessionWtpIpAddress'))])
+            om.macaddress = ':'.join([
+                str(x) for x in map(ord, ap_session.get('fgWcWtpSessionWtpBaseMacAddress'))])
             om.osversion = ap_session.get('fgWcWtpSessionWtpSwVersion')
             om.modelnumber = ap_session.get('fgWcWtpSessionWtpModelNumber')
 
@@ -107,10 +112,12 @@ class wirelessAP(SnmpPlugin):
             om_ssid.id = self.prepId(name)
             om_ssid.snmpindex = snmpindex.lstrip('.')
             om_ssid.description = name
-            om_ssid.statusadmin = wlan_entry.get('fgWcWlanBroadcastSsid')
-            om_ssid.trafficmode = wlan_entry.get('fgWcWlanMeshBackhaul')
-            om_ssid.securitymode = wlan_entry.get('fgWcWlanSecurity')
-            om_ssid.encryption = wlan_entry.get('fgWcWlanEncryption')
+            om_ssid.statusadmin = lookup_ssid_broadcast(
+                wlan_entry.get('fgWcWlanBroadcastSsid'))
+            om_ssid.securitymode = lookup_ssid_security(
+                wlan_entry.get('fgWcWlanSecurity'))
+            om_ssid.encryption = lookup_ssid_encryption(
+                wlan_entry.get('fgWcWlanEncryption'))
 
             rm_ssid.append(om_ssid)
 

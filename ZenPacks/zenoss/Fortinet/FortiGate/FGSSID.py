@@ -29,7 +29,6 @@ class FGSSID(OSComponent, ManagedEntity):
     _properties = ManagedEntity._properties + (
         {'id': 'ssid', 'type': 'string'},
         {'id': 'statusadmin', 'type': 'string'},
-        {'id': 'trafficmode', 'type': 'string'},
         {'id': 'securitymode', 'type': 'string'},
         {'id': 'encryption', 'type': 'string'},
         )

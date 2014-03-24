@@ -19,7 +19,6 @@ class FGSSIDInfo(ComponentInfo):
 
     ssid = ProxyProperty('ssid')
     statusadmin = ProxyProperty('statusadmin')
-    trafficmode = ProxyProperty('trafficmode')
     securitymode = ProxyProperty('securitymode')
     encryption = ProxyProperty('encryption')
 

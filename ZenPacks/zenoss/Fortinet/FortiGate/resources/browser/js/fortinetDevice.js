@@ -111,7 +111,7 @@ ZC.FGAPPanel = Ext.extend(ZC.FGComponentGridPanel, {
                 dataIndex: 'osversion',
                 header: _t('OS Version'),
                 sortable: true,
-                width: 110
+                width: 160
             },{
                 id: 'modelnumber',
                 dataIndex: 'modelnumber',
@@ -149,7 +149,6 @@ ZC.FGSSIDPanel = Ext.extend(ZC.FGComponentGridPanel, {
                 {name: 'name'},
                 {name: 'title'},
                 {name: 'statusadmin'},
-                {name: 'trafficemode'},
                 {name: 'securitymode'},
                 {name: 'encryption'},
                 {name: 'monitor'},
@@ -170,12 +169,6 @@ ZC.FGSSIDPanel = Ext.extend(ZC.FGComponentGridPanel, {
                 id: 'statusadmin',
                 dataIndex: 'statusadmin',
                 header: _t('Admin Status'),
-                sortable: true,
-                width: 110
-            },{
-                id: 'trafficemode',
-                dataIndex: 'trafficemode',
-                header: _t('Traffice Mode'),
                 sortable: true,
                 width: 110
             },{
