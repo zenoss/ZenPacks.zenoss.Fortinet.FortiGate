@@ -34,7 +34,7 @@ Auto
 <tomanycont id='datapoints'>
 <object id='fgWcWtpSessionWtpByteRxCount' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
 <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
-GAUGE
+COUNTER
 </property>
 <property type="boolean" id="isrow" mode="w" >
 True
@@ -70,7 +70,7 @@ Auto
 <tomanycont id='datapoints'>
 <object id='fgWcWtpSessionWtpByteTxCount' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
 <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
-GAUGE
+COUNTER
 </property>
 <property type="boolean" id="isrow" mode="w" >
 True
@@ -159,6 +159,9 @@ True
 <property type="int" id="width" mode="w" >
 500
 </property>
+<property type="string" id="units" mode="w" >
+%
+</property>
 <property type="boolean" id="log" mode="w" >
 False
 </property>
@@ -166,10 +169,10 @@ False
 False
 </property>
 <property type="int" id="miny" mode="w" >
--1
+0
 </property>
 <property type="int" id="maxy" mode="w" >
--1
+100
 </property>
 <property type="boolean" id="hasSummary" mode="w" >
 True
