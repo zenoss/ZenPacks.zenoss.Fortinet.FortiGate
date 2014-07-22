@@ -3,10 +3,10 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.zenoss.Fortinet.FortiGate"
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 AUTHOR = "Zenoss"
 LICENSE = ""
-NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.zenoss', 'ZenPacks.zenoss.Forinet']
+NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.zenoss', 'ZenPacks.zenoss.Fortinet']
 PACKAGES = ['ZenPacks', 'ZenPacks.zenoss', 'ZenPacks.zenoss.Fortinet', 'ZenPacks.zenoss.Fortinet.FortiGate']
 INSTALL_REQUIRES = ['ZenPacks.zenoss.PythonCollector>=1.2']
 COMPAT_ZENOSS_VERS = ">=4.1"
@@ -15,26 +15,8 @@ PREV_ZENPACK_NAME = ""
 ################################
 # Zenoss will not overwrite any changes you make below here.
 
-import os
-import subprocess
-import sys
-
 from setuptools import setup, find_packages
 
-
-if os.path.isfile('GNUmakefile'):
-    make_target = None
-    if 'bdist_egg' in sys.argv:
-        make_target = 'egg-dependencies'
-    elif 'develop' in sys.argv:
-        make_target = 'develop-dependencies'
-
-    if make_target:
-        try:
-            subprocess.check_output('make {}'.format(make_target), shell=True)
-        except subprocess.CalledProcessError as e:
-            print e.output
-            raise
 
 setup(
     # This ZenPack metadata should usually be edited with the Zenoss

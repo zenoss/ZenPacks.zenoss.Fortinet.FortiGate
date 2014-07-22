@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    >
+
+    <adapter
+        factory=".info.FGSSIDInfo"
+        for=".FGSSID.FGSSID"
+        provides=".interfaces.IFGSSIDInfo"
+        />
+    
+    <adapter
+        factory=".info.FGAPInfo"
+        for=".FGAP.FGAP"
+        provides=".interfaces.IFGAPInfo"
+        />
+
+    <include package=".resources"/>
+</configure>
